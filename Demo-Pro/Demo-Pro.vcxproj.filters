@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{585e34c8-25ac-461b-a112-78232bc607dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene">
+      <UniqueIdentifier>{632a7098-27a6-499e-8d68-7f97d9ab3e1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="object">
+      <UniqueIdentifier>{ad467831-8a65-4285-870e-950e64fb9b69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render">
+      <UniqueIdentifier>{64565c2b-084d-45df-a054-baefb1ba2efa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{4ea82826-3e2e-4c7e-8e48-46a17623097a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="geometry">
+      <UniqueIdentifier>{ffc85117-fa0e-40b3-92b7-c19d9fd2dbcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="texture">
+      <UniqueIdentifier>{8ca9d20d-9675-4f4f-a7f0-618e1df8889a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{92a46193-9caa-42c8-9676-aa073f74fd7e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="glad.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="createConeMesh.cpp">
+      <Filter>geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="createAxisMesh.cpp">
+      <Filter>geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="createTriangleMesh.cpp">
+      <Filter>geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="createCubeMesh.cpp">
+      <Filter>geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="createSphereMesh.cpp">
+      <Filter>geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="createCylinderMesh.cpp">
+      <Filter>geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Instance1.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="OrbitComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="SpinComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Vertex.h">
+      <Filter>geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderContext.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="GeometryBuilder.h">
+      <Filter>geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="Materials.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderState.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturePool.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderLibrary.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneBuilder.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentBuilder.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="color.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="color.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="basic.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="basic.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="texture.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="texture.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="phong.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="phong.frag">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="wives1.png">
+      <Filter>texture</Filter>
+    </Image>
+    <Image Include="wives2.png">
+      <Filter>texture</Filter>
+    </Image>
+    <Image Include="wives3.png">
+      <Filter>texture</Filter>
+    </Image>
+    <Image Include="wives4.png">
+      <Filter>texture</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
