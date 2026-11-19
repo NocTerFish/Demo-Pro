@@ -78,6 +78,9 @@
     <ClCompile Include="SpinComponent.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="Instance2.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vertex.h">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="ComponentBuilder.h">
       <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialPool.h">
+      <Filter>render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

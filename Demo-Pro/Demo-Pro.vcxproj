@@ -156,6 +156,7 @@
     <ClCompile Include="createConeMesh.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Instance1.cpp" />
+    <ClCompile Include="Instance2.cpp" />
     <ClCompile Include="OrbitComponent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="GeometryBuilder.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Material.h" />
+    <ClInclude Include="MaterialPool.h" />
     <ClInclude Include="Materials.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Object.h" />

@@ -3,6 +3,7 @@
 #include <map>
 #include <memory>
 #include <string>
+#include <iostream>
 
 //全局单例的纹理池
 class TexturePool
@@ -33,7 +34,7 @@ public:
 	{
 		if (textures.find(name) != textures.end())
 		{
-			return;
+			std::cout << "[TexturePool.h] 纹理重名，已覆盖" << name << std::endl;
 		}
 
 		std::shared_ptr<Texture> tex = std::make_shared<Texture>();
@@ -44,7 +45,7 @@ public:
 	}
 
 	//按名字获取
-	std::shared_ptr<Texture> get(const std::string& name)
+	std::shared_ptr<Texture> getTex(const std::string& name)
 	{
 		std::map<std::string, std::shared_ptr<Texture>>::iterator it = textures.find(name);
 		if (it != textures.end())

@@ -5,7 +5,8 @@
 #include<cmath>
 #include"RenderState.h"
 #include"TexturePool.h"
-#include"Materials.h"
+#include"MaterialPool.h"
+#include"ShaderLibrary.h"
 #include"Objects.h"
 #include"Camera.h"
 #include"Scene.h"
@@ -113,6 +114,55 @@ void printInfo(GLFWwindow* window)
 	std::cout << "\033[?25l" << std::flush;
 }
 
+void readyRender()
+{
+	//准备着色器
+	ShaderLibrary* lib = ShaderLibrary::getInstance();
+	lib->addFromFile("texture", "texture.vert", "texture.frag");
+	lib->addFromFile("color", "color.vert", "color.frag");
+
+	//准备纹理
+	TexturePool* TexPool = TexturePool::getInstance();
+	TexPool->loadTex("wives1", "wives1.png");
+	TexPool->loadTex("wives2", "wives2.png");
+	TexPool->loadTex("wives3", "wives3.png");
+	TexPool->loadTex("wives4", "wives4.png");
+
+	//准备材质
+	MaterialPool* matPool = MaterialPool::getInstance();
+
+	//创建坐标轴用的0号材质
+	std::shared_ptr<Material> mat0 = std::make_shared<VertexColorMaterial>();
+	mat0->shader = lib->get("color");
+	matPool->loadMat("mat0", mat0);
+
+	//创建材质1
+	auto mat1 = std::make_shared<TextureMaterial>();
+	mat1->shader = lib->get("texture");
+	mat1->tex1 = TexPool->getTex("wives1");
+	mat1->mixRate = 0.0f;
+	matPool->loadMat("mat1", mat1);
+	//创建材质2
+	auto mat2 = std::make_shared<TextureMaterial>();
+	mat2->shader = lib->get("texture");
+	mat2->tex1 = TexPool->getTex("wives2");
+	mat2->mixRate = 0.0f;
+	matPool->loadMat("mat2", mat2);
+	//创建材质3
+	auto mat3 = std::make_shared<TextureMaterial>();
+	mat3->shader = lib->get("texture");
+	mat3->tex1 = TexPool->getTex("wives4");
+	mat3->mixRate = 0.0f;
+	matPool->loadMat("mat3", mat3);
+	//创建材质4
+	auto mat4 = std::make_shared<TextureMaterial>();
+	mat4->shader = lib->get("texture");
+	mat4->tex1 = TexPool->getTex("wives2");
+	mat4->tex2 = TexPool->getTex("wives3");
+	mat4->mixRate = 0.5f;
+	matPool->loadMat("mat4", mat4);
+}
+
 int main()
 {
 	glfwInit();
@@ -153,6 +203,8 @@ int main()
 	int nrAttributes;
 	glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
 	std::cout << "GPU支持的最大顶点属性数: " << nrAttributes << std::endl;
+
+	readyRender();
 
 	//创建场景实例
 	Instance1 scene;
