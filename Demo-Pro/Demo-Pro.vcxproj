@@ -168,12 +168,14 @@
     <ClInclude Include="ComponentBuilder.h" />
     <ClInclude Include="GeometryBuilder.h" />
     <ClInclude Include="Light.h" />
+    <ClInclude Include="LightBuilder.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialPool.h" />
-    <ClInclude Include="Materials.h" />
+    <ClInclude Include="MaterialBuilder.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="Object.h" />
-    <ClInclude Include="Objects.h" />
+    <ClInclude Include="ModelBuilder.h" />
     <ClInclude Include="RenderContext.h" />
     <ClInclude Include="RenderState.h" />
     <ClInclude Include="Scene.h" />
@@ -192,6 +194,8 @@
     <None Include="color.vert" />
     <None Include="phong.frag" />
     <None Include="phong.vert" />
+    <None Include="texPhong.frag" />
+    <None Include="texPhong.vert" />
     <None Include="texture.frag" />
     <None Include="texture.vert" />
   </ItemGroup>

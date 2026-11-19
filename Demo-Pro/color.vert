@@ -14,9 +14,8 @@ uniform mat4 projection;
 
 void main()
 {
-	gl_Position = projection * view * model * vec4(aPos, 1.0);
-
 	//顶点颜色传给片段着色器
 	//GPU会在三角形内部插值
 	ourColor = aColor;
+	gl_Position = projection * view * model * vec4(aPos, 1.0);
 }

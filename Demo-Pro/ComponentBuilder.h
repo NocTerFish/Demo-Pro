@@ -19,10 +19,10 @@ public:
 	glm::vec3 tangentDir;	//运动方向在切线平面内的归一化投影
 	glm::vec3 lastTargetPos;//上一帧的目标位置
 
-	OrbitComponent(glm::vec3 _direction = glm::vec3(1.0f), float _speed = 30.0f, glm::vec3 _center = glm::vec3(0.0f))
+	OrbitComponent(glm::vec3 _direction = glm::vec3(1.0f), glm::vec3 _center = glm::vec3(0.0f), float _speed = 30.0f)
 		: direction(_direction)
-		, speed(_speed)
 		, center(_center)
+		, speed(_speed)
 		, radius(0.0f)
 		, radialDir(0.0f)
 		, tangentDir(0.0f)

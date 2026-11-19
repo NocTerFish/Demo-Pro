@@ -1,8 +1,8 @@
 #pragma once
+#include "Shader.h"
 #include <map>
 #include <string>
 #include <iostream>
-#include "Shader.h"
 
 class ShaderLibrary
 {

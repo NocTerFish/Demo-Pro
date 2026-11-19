@@ -104,13 +104,13 @@
     <ClInclude Include="GeometryBuilder.h">
       <Filter>geometry</Filter>
     </ClInclude>
-    <ClInclude Include="Objects.h">
+    <ClInclude Include="ModelBuilder.h">
       <Filter>object</Filter>
     </ClInclude>
     <ClInclude Include="Material.h">
       <Filter>render</Filter>
     </ClInclude>
-    <ClInclude Include="Materials.h">
+    <ClInclude Include="MaterialBuilder.h">
       <Filter>render</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
@@ -146,6 +146,12 @@
     <ClInclude Include="MaterialPool.h">
       <Filter>render</Filter>
     </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>object</Filter>
+    </ClInclude>
+    <ClInclude Include="LightBuilder.h">
+      <Filter>object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="color.vert">
@@ -170,6 +176,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="phong.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="texPhong.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="texPhong.frag">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

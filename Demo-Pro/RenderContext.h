@@ -8,7 +8,7 @@ struct RenderContext
 	glm::mat4 view;				//视图矩阵
 	glm::mat4 projection;		//投影矩阵
 	glm::vec3 cameraPos;		//相机位置
-	std::vector<Light> lights;	//光源列表
+	std::vector<std::shared_ptr<Light>> lights;	//光源列表
 	float time;					//动画用时
 
 	//默认构造函数

@@ -5,7 +5,7 @@ in vec2 TexCoord;
 
 out vec4 FragColor;
 
-// ── 纹理采样器 ──
+//纹理采样器
 uniform sampler2D tex1;
 uniform sampler2D tex2;
 

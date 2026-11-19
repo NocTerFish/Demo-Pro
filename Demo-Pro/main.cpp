@@ -3,13 +3,10 @@
 #include<iostream>
 #include<vector>
 #include<cmath>
-#include"RenderState.h"
 #include"TexturePool.h"
 #include"MaterialPool.h"
 #include"ShaderLibrary.h"
-#include"Objects.h"
 #include"Camera.h"
-#include"Scene.h"
 #include"SceneBuilder.h"
 
 const unsigned int SCR_WIDTH = 1200;
@@ -120,6 +117,9 @@ void readyRender()
 	ShaderLibrary* lib = ShaderLibrary::getInstance();
 	lib->addFromFile("texture", "texture.vert", "texture.frag");
 	lib->addFromFile("color", "color.vert", "color.frag");
+	lib->addFromFile("phong", "phong.vert", "phong.frag");
+	lib->addFromFile("basic", "basic.vert", "basic.frag");
+	lib->addFromFile("texPhong", "texPhong.vert", "texPhong.frag");
 
 	//准备纹理
 	TexturePool* TexPool = TexturePool::getInstance();
@@ -161,6 +161,40 @@ void readyRender()
 	mat4->tex2 = TexPool->getTex("wives3");
 	mat4->mixRate = 0.5f;
 	matPool->loadMat("mat4", mat4);
+
+	//创建光照材质
+	auto matPhong = std::make_shared<PhongMaterial>();
+	matPhong->shader = lib->get("phong");
+	matPool->loadMat("matPhong", matPhong);
+
+	//创建基础材质
+	auto matBasic = std::make_shared<BasicMaterial>();
+	matBasic->shader = lib->get("basic");
+	matPool->loadMat("matBasic", matBasic);
+
+	//贴图光照材质1
+	auto mtp1 = std::make_shared<texPhongMaterial>();
+	mtp1->shader = lib->get("texPhong");
+	mtp1->tex = TexPool->getTex("wives1");
+	matPool->loadMat("mtp1", mtp1);
+
+	//贴图光照材质2
+	auto mtp2 = std::make_shared<texPhongMaterial>();
+	mtp2->shader = lib->get("texPhong");
+	mtp2->tex = TexPool->getTex("wives2");
+	matPool->loadMat("mtp2", mtp2);
+
+	//贴图光照材质3
+	auto mtp3 = std::make_shared<texPhongMaterial>();
+	mtp3->shader = lib->get("texPhong");
+	mtp3->tex = TexPool->getTex("wives3");
+	matPool->loadMat("mtp3", mtp3);
+
+	//贴图光照材质4
+	auto mtp4 = std::make_shared<texPhongMaterial>();
+	mtp4->shader = lib->get("texPhong");
+	mtp4->tex = TexPool->getTex("wives4");
+	matPool->loadMat("mtp4", mtp4);
 }
 
 int main()
@@ -204,10 +238,11 @@ int main()
 	glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
 	std::cout << "GPU支持的最大顶点属性数: " << nrAttributes << std::endl;
 
+	//渲染工具准备
 	readyRender();
 
 	//创建场景实例
-	Instance1 scene;
+	Instance2 scene;
 	scene.init();
 
 	//获得当前场景的相机指针，将其转化为void类型指针，放入窗口用户指针中供回调引用

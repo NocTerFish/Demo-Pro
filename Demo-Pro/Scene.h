@@ -9,15 +9,15 @@
 #include "RenderState.h"
 #include "Camera.h"
 #include "Light.h"
-#include "Object.h"
+#include "Model.h"
 
 class Scene
 {
 public:
-	std::map<std::string, std::shared_ptr<Object>> objectsMap;
+	std::map<std::string, std::shared_ptr<Model>> modelMap;
 	Camera camera;					//摄像机
 	RenderState renderState;		//渲染状态
-	std::vector<Light> lights;		//光源数组
+	std::vector<std::shared_ptr<Light>> lights;	//光源数组
 	float totalTime;				//累计时间
 
 	glm::vec4 clearColor;			//清屏颜色
@@ -34,36 +34,36 @@ public:
 	//初始化场景
 	virtual void init() {};
 
-	//增加对象
-	void addObject(const std::string& name, std::shared_ptr<Object> obj)
+	//增加模型
+	void addModel(const std::string& name, std::shared_ptr<Model> mod)
 	{
-		if (objectsMap.find(name) != objectsMap.end())
+		if (modelMap.find(name) != modelMap.end())
 		{
 			std::cout << "[Scene.h] 名字重复，已覆盖: " << name << std::endl;
 		}
-		objectsMap[name] = obj;
+		modelMap[name] = mod;
 	}
 
-	//取对象
-	std::shared_ptr<Object> getObject(const std::string& name)
+	//取用模型
+	std::shared_ptr<Model> getModel(const std::string& name)
 	{
-		auto it = objectsMap.find(name);
-		if (it == objectsMap.end())
+		auto it = modelMap.find(name);
+		if (it == modelMap.end())
 		{
 			std::cout << "[Scene.h] 未找到对象" << name << std::endl;
 			return nullptr;
 		}
 		return it->second;
 	}
-	//转换成具体类型的取对象函数
+	//转换成具体类型的取用模型函数
 	template <typename T>
-	std::shared_ptr<T> getObjectAs(const std::string& name)
+	std::shared_ptr<T> getModelAs(const std::string& name)
 	{
-		auto obj = getObject(name);
-		if (!obj) 
+		auto mod = getModel(name);
+		if (!mod) 
 			return nullptr;
 
-		auto typed = std::dynamic_pointer_cast<T>(obj);
+		auto typed = std::dynamic_pointer_cast<T>(mod);
 		if (!typed)
 		{
 			std::cout << "[Scene.h] 对象 " << name << " 类型不匹配" << std::endl;
@@ -72,7 +72,7 @@ public:
 	}
 
 	//增加光源
-	void addLight(const Light& light)
+	void addLight(const std::shared_ptr<Light> light)
 	{
 		lights.push_back(light);
 	}
@@ -99,9 +99,13 @@ public:
 	virtual void updata(float dt)
 	{
 		totalTime += dt;
-		for (auto& obj : objectsMap)
+		for(auto& mod : modelMap)
 		{
-			obj.second->updata(dt);
+			mod.second->updata(dt);
+		}
+		for(auto& light : lights)
+		{
+			light->updata(dt);
 		}
 	}
 
@@ -119,9 +123,9 @@ public:
 		RenderContext ctx = buildContext();
 
 		//遍历调用所有对象的绘制函数
-		for (auto& obj : objectsMap)
+		for (auto& mod : modelMap)
 		{
-			obj.second->draw(ctx);
+			mod.second->draw(ctx);
 		}
 	}
 

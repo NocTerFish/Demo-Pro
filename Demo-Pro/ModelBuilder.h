@@ -1,11 +1,11 @@
 #pragma once
-#include "Object.h"
+#include "Model.h"
 #include "GeometryBuilder.h"
 #include <vector>
 #include <cmath>
 
 //坐标轴
-class Axis : public LineObject
+class Axis : public Line
 {
 public:
 	float xLen;
@@ -35,7 +35,7 @@ public:
 };
 
 //三角形
-class Triangle : public Object
+class Triangle : public Model
 {
 public:
 
@@ -62,7 +62,7 @@ public:
 };
 
 //立方体
-class Cube : public Object
+class Cube : public Model
 {
 public:
 	float xLen;
@@ -90,7 +90,7 @@ public:
 };
 
 //球体
-class Sphere : public Object
+class Sphere : public Model
 {
 public:
 	int segments;
@@ -116,7 +116,7 @@ public:
 };
 
 //圆柱体
-class Cylinder : public Object
+class Cylinder : public Model
 {
 public:
 	int   segments;
@@ -142,7 +142,7 @@ public:
 };
 
 //圆锥体
-class Cone : public Object
+class Cone : public Model
 {
 public:
 	int   segments;

@@ -1,5 +1,5 @@
 #include "SceneBuilder.h"
-#include "Objects.h"
+#include "ModelBuilder.h"
 #include "GeometryBuilder.h"
 #include "MaterialPool.h"
 #include "ComponentBuilder.h"
@@ -17,7 +17,7 @@ void Instance1::init()
 	//在场景中创建并加入一个坐标轴
 	Axis axis;
 	axis.material = matPool->getMat("mat0");
-	addObject("axis", std::make_shared<Axis>(axis));
+	addModel("axis", std::make_shared<Axis>(axis));
 
 	//在场景中创建并加入一个圆锥
 	Cone cone;
@@ -25,14 +25,14 @@ void Instance1::init()
 	cone.setTransform(Transform(glm::vec3(2.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(0.5f)));
 	cone.addComponent("coneSpin", std::make_shared<SpinComponent>(glm::vec3(1.0f, 0.0f, 0.0f), 90.0f));
 	cone.addComponent("coneOrbit", std::make_shared<OrbitComponent>());
-	addObject("cone", std::make_shared<Cone>(cone));
+	addModel("cone", std::make_shared<Cone>(cone));
 
 	//在场景中创建并加入一个球体
 	Sphere sphere;
 	sphere.setMaterial(matPool->getMat("mat2"));
 	sphere.setTransform(Transform(glm::vec3(-2.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(0.5f)));
 	sphere.addComponent("orbit", std::make_shared<OrbitComponent>(glm::vec3(0.0f, 1.0f, 0.0f)));
-	addObject("sphere", std::make_shared<Sphere>(sphere));
+	addModel("sphere", std::make_shared<Sphere>(sphere));
 
 	//在场景中创建并加入一个圆柱
 	Cylinder cylinder;
@@ -40,13 +40,13 @@ void Instance1::init()
 	cylinder.setTransform(Transform(glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(0.0f), glm::vec3(0.5f)));
 	cylinder.addComponent("cylinderSpin", std::make_shared<SpinComponent>());
 	cylinder.addComponent("cylinderOrbit", std::make_shared<OrbitComponent>());
-	addObject("cylinder", std::make_shared<Cylinder>(cylinder));
+	addModel("cylinder", std::make_shared<Cylinder>(cylinder));
 
 	//在场景中创建并加入一个立方体
 	Cube cube;
 	cube.setMaterial(matPool->getMat("mat4"));
 	cube.addComponent("CubeSpin", std::make_shared<SpinComponent>());
-	addObject("cube", std::make_shared<Cube>(cube));
+	addModel("cube", std::make_shared<Cube>(cube));
 	
 }
 
@@ -56,7 +56,7 @@ void Instance1::updata(float dt)
 	Scene::render();
 
 	//更新立方体
-	std::shared_ptr<Cube> cube = getObjectAs<Cube>("cube");
+	std::shared_ptr<Cube> cube = getModelAs<Cube>("cube");
 	cube->getMaterialAs<TextureMaterial>()->mixRate = 0.5f + 0.5f * sin(totalTime);
 
 }
