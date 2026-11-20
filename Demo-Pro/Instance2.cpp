@@ -38,7 +38,7 @@ void Instance2::init()
 	cone.setMaterial(matPool->getMat("mtp3"));
 	cone.setTransform(Transform(glm::vec3(-1.0f), glm::vec3(0.0f), glm::vec3(0.3f)));
 	cone.addComponent("orbit", std::make_shared<OrbitComponent>(glm::vec3(1.0f, 0.0f, 0.0f)));	//圆周运动组件
-	cone.addComponent("orbit2", std::make_shared<OrbitComponent>(glm::vec3(0.0f, 1.0f, 0.0f)));	//圆周运动组件
+	cone.addComponent("orbit2", std::make_shared<OrbitComponent>(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 1.0f, -1.0f)));	//圆周运动组件
 	cone.addComponent("spin", std::make_shared<SpinComponent>(glm::vec3(1.0f, 0.0f, 0.0f)));	//自转组件
 	addModel("cone", std::make_shared<Cone>(cone));		//将对象加入当前场景
 
@@ -57,7 +57,7 @@ void Instance2::init()
 }
 
 void Instance2::updata(float dt)
-{
+{ 
 	Scene::updata(dt);
 	Scene::render();
 
