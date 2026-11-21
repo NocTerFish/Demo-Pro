@@ -81,6 +81,15 @@
     <ClCompile Include="Instance2.cpp">
       <Filter>scene</Filter>
     </ClCompile>
+    <ClCompile Include="PointLight.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="SpotLight.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
+    <ClCompile Include="DirLight.cpp">
+      <Filter>object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vertex.h">

@@ -123,10 +123,16 @@ public:
 
 			std::string prefix = "lights[" + std::to_string(i) + "].";
 
+			shader->setInt(prefix + "type", L->type);
 			shader->setVec3(prefix + "position", L->transform.position);
 			shader->setVec3(prefix + "color", L->color);
 			shader->setFloat(prefix + "strength", L->strength);
-
+			shader->setVec3(prefix + "dir", L->getDir());
+			shader->setFloat(prefix + "cutOff", L->cutOff);
+			shader->setFloat(prefix + "cutOffRatio", L->cutOffRatio);
+			shader->setFloat(prefix + "quadratic", L->quadratic);
+			shader->setFloat(prefix + "linear", L->linear);
+			shader->setFloat(prefix + "constant", L->constant);
 		}
 	}
 };
@@ -187,9 +193,16 @@ public:
 
 			std::string prefix = "lights[" + std::to_string(i) + "].";
 
+			shader->setInt(prefix + "type", L->type);
 			shader->setVec3(prefix + "position", L->transform.position);
 			shader->setVec3(prefix + "color", L->color);
 			shader->setFloat(prefix + "strength", L->strength);
+			shader->setVec3(prefix + "dir", L->getDir());
+			shader->setFloat(prefix + "cutOff", L->cutOff);
+			shader->setFloat(prefix + "cutOffRatio", L->cutOffRatio);
+			shader->setFloat(prefix + "quadratic", L->quadratic);
+			shader->setFloat(prefix + "linear", L->linear);
+			shader->setFloat(prefix + "constant", L->constant);
 		}
 	}
 };

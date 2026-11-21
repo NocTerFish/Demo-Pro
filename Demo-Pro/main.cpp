@@ -18,7 +18,7 @@ bool firstMouse = true;
 bool cameraControl = true;
 
 //鼠标回调
-void mouseCallBack(GLFWwindow* window, double xpos, double ypos)
+static void mouseCallBack(GLFWwindow* window, double xpos, double ypos)
 {
 	if (firstMouse)
 	{
@@ -42,7 +42,7 @@ void mouseCallBack(GLFWwindow* window, double xpos, double ypos)
 }
 
 //滚轮回调
-void scrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+static void scrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 {
 	if (!cameraControl)
 		return;
@@ -52,7 +52,7 @@ void scrollCallback(GLFWwindow* window, double xoffset, double yoffset)
 }
 
 //键盘回调
-void processInput(GLFWwindow* window, float dt)
+static void processInput(GLFWwindow* window, float dt)
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
@@ -103,7 +103,7 @@ void processInput(GLFWwindow* window, float dt)
 }
 
 //打印函数
-void printInfo(GLFWwindow* window)
+static void printInfo(GLFWwindow* window)
 {
 	Camera* camera = (Camera*)glfwGetWindowUserPointer(window);	//获得当前窗口的用户指针，转换回摄像机指针
 	std::cout << "\033[H";
@@ -111,7 +111,7 @@ void printInfo(GLFWwindow* window)
 	std::cout << "\033[?25l" << std::flush;
 }
 
-void readyRender()
+static void readyRender()
 {
 	//准备着色器
 	ShaderLibrary* lib = ShaderLibrary::getInstance();

@@ -154,13 +154,16 @@
     <ClCompile Include="createSphereMesh.cpp" />
     <ClCompile Include="createTriangleMesh.cpp" />
     <ClCompile Include="createConeMesh.cpp" />
+    <ClCompile Include="DirLight.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Instance1.cpp" />
     <ClCompile Include="Instance2.cpp" />
     <ClCompile Include="OrbitComponent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="PointLight.cpp" />
     <ClCompile Include="SpinComponent.cpp" />
+    <ClCompile Include="SpotLight.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
